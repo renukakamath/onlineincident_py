@@ -1,0 +1,71 @@
+{% include 'departmentheader.html'%}
+<section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+<form method="POST">
+<center>
+	
+ <h3>ADD WORK TO STAFF</h3>
+
+<table class="table" style="width:500px;color: green">
+<tr>
+	<th>staff</th>
+	<td><select name="staffid">
+		<option>choose</option>
+	{%  for row in data['staffdrop']%}
+			<option value="{{row['staff_id'] }}">
+				{{row['firstname']}}
+				{{row['lastname']}}
+			</option>
+	{% endfor %}
+	</select>
+</td>
+</tr>
+<tr>
+<th>Work</th>
+<td><input type="text" name="title" required class="form-control" ></td>
+</tr>
+<tr>
+<th>Description</th>
+<td><input type="text" name="des" required class="form-control" ></td>
+</tr>
+<tr>
+	 <td align="center" colspan="2"><input type="submit" name="add" value="ADD" class="btn btn-success"></td>
+ </tr>
+        </table>
+ <h3>VIEW ADD WORK TO STAFF</h3>
+	<table class="table" style="width: 500px">
+	<thead class="thead-dark">
+		<tr>
+			<th>slno</th>
+			<th>first name</th>
+			<th>last name</th>
+			<th>Work</th>
+			<th>Description</th>
+			<th>Date</th>
+		</tr>
+</thead>
+{% for row in data['works']%}
+
+<tr>
+	<td>{{loop.index}}</td>
+		<td>{{row['firstname']}}</td>
+	<td>{{row['lastname']}}</td>
+	<td>{{row['work']}}</td>
+	<td>{{row['description']}}</td>
+	<td>{{row['date']}}</td>
+	  <td><a class="btn btn-success" href="deptviewuploadedwork?wid={{row ['work_id']}}">view uploaded work</a></td>
+</tr>
+{% endfor %}
+	</table>
+
+
+    </center>
+</form>   
+</header></div></section>   
+
+
+{% include 'footer.html'%}
+	

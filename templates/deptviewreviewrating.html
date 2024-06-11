@@ -1,0 +1,36 @@
+{% include 'departmentheader.html'%}
+
+<section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+<center>
+<h1>VIEW REVIEW & RATING</h1>
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>slno</th>
+			<th>Department Name</th>
+			
+			<th>Review </th>
+			<th>Rated</th>
+			<th>date</th>
+	 	</tr>
+{% for row in data['rivew']%}
+
+<tr>
+	<td>{{loop.index}}</td>
+	<td>{{row['dept_name']}}</td>
+	
+	<td>{{row['review']}}</td>
+	<td>{{row['rate']}}</td>
+	<td>{{row['date_time']}}</td>
+	
+</tr>
+
+	{% endfor %}
+	  </table>
+	  </center></header></div></section>  
+
+
+	    {% include 'footer.html'%} 

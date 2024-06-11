@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/img"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Userhome">
+
+    <Button
+        android:id="@+id/Viewpubliccomplaints"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="View public complaints"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="173dp" />
+
+    <Button
+        android:id="@+id/Viewdepartments"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="View departments"
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="264dp" />
+
+    <Button
+        android:id="@+id/postcomplaints"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="post complaints"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="354dp" />
+
+    <Button
+        android:id="@+id/viewmessageadmin"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="View Admin Message"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="442dp" />
+
+    <Button
+        android:id="@+id/viewrules"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="View Rules "
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="529dp" />
+
+
+<!--    <Button-->
+<!--        android:id="@+id/rate"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Rate"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        tools:layout_editor_absoluteY="594dp" />-->
+
+
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="594dp" />
+
+</LinearLayout>

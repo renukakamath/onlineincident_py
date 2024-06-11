@@ -1,0 +1,37 @@
+{% include 'staffheader.html'%}
+
+
+<section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+
+<center>
+<h1>VIEW ACTIVITY</h1>
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>slno</th>
+			<th>Department Name</th>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Activity Date</th>
+	 	</tr>
+		{% for row in data['act']%}
+
+<tr>
+	<td>{{loop.index}}</td>
+	<td>{{row['dept_name']}}</td>
+	<td>{{row['title']}}</td>
+	<td>{{row['description']}}</td>
+	<td>{{row['activity_date']}}</td>
+	
+</tr>
+{% endfor %}
+	  </table>
+	  </center>
+
+
+	   </header></div></section>
+
+	  {% include 'footer.html'%}

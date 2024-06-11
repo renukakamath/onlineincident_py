@@ -1,0 +1,41 @@
+ {% include 'admin_header.html'%}
+
+ <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+
+<center>
+
+ <br> <br> <h1>VIEW DEPARTMENTS</h1> <table class="table" style="width:
+500px"> 
+<tr> <th>slno</th> <th>place</th> <th>Department Name</th>
+<th>Phone</th> <th>Email</th> <th>Description</th>
+
+		</tr>
+
+{% for row in data['departmentview']%}
+<tr>
+	<td>{{loop.index}}</td>
+	<td>{{row['place_name']}}</td>
+	<td>{{row['dept_name']}}</td>
+	<td>{{row['phone']}}</td>
+	<td>{{row['email']}}</td>
+	<td>{{row['description']}}</td>
+
+	  <td><a class="btn btn-success" href="adminmsgdept?did={{row ['dept_id']}}">message</a></td>
+  
+</tr>
+{% endfor %}
+
+
+	</table>
+
+
+    </center>
+
+</header></div></section>
+{% include 'footer.html'%}
+
+ 

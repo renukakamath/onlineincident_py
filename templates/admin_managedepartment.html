@@ -1,0 +1,123 @@
+{%include 'admin_header.html'%}
+<section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+<center>
+	<h1 style="color: green">Manage department</h1>
+	<form method="post" enctype="multipart/form-data">
+		{% if data['departmentup']%}
+		<table class="table" style="width: 500px;color:green">
+		<tr>
+			<th>department</th>
+			<td><input type="text" required="" class="form-control" value="{{data['departmentup'][0]['dept_name']}}" name="department"></td>
+		</tr>
+		<tr>
+			<th>phone</th>
+			<td><input type="number" pattern="[0-9]{10}" required="" class="form-control" value="{{data['departmentup'][0]['phone']}}" name="phone"></td>
+		</tr>
+
+		<tr>
+			<th>email</th>
+			<td><input type="text" required="" class="form-control"  value="{{data['departmentup'][0]['email']}}" name="email"></td>
+		</tr>
+		<tr>
+			<th>description</th>
+			<td><input type="text" required="" class="form-control"  value="{{data['departmentup'][0]['description']}}"  name="description"></td>
+		</tr>
+		
+		<tr>
+			<th>place</th>
+			<td><select name="place" class="form-control" required="">
+				<option value="{{data['departmentup'][0]['place_id']}}">{{data['departmentup'][0]['place_name']}}</option>
+				<option>---Select---</option>
+				{% for row in data['dropplace']%}
+				<option value="{{row['place_id']}}">{{row['place_name']}}</option>
+				{% endfor %}
+			</select></td>
+
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="update"></td>
+		</tr>
+	</table>
+	{% else %}
+	<table class="table" style="width: 500px;color: green">
+		<tr>
+			<th>department</th>
+			<td><input type="text" required="" class="form-control" name="department"></td>
+		</tr>
+	<tr>
+			<th>phone</th>
+			<td><input type="text" required="" class="form-control" name="phone"></td>
+		</tr>
+	<tr>
+			<th>email</th>
+			<td><input type="text" required="" class="form-control"  name="email"></td>
+		</tr>
+		<tr>
+			<th>description</th>
+			<td><input type="text" required="" class="form-control"  name="description"></td>
+		</tr>
+		
+		<tr>
+			<th>place</th>
+			<td><select name="place" class="form-control" required="">
+				
+				<option>---Select---</option>
+				{% for row in data['dropplace']%}
+				<option value="{{row['place_id']}}">{{row['place_name']}}</option>
+				{% endfor %}
+			</select></td>
+
+		</tr>
+
+		<tr>
+				<th>User Name</th>
+				<td><input type="text" class="form-control" required=""  name="uname"></td>
+			</tr>
+			<tr>
+				<th>Password</th>
+				<td><input type="password" class="form-control" required=""  name="pwd"></td>
+			</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="add"></td>
+		</tr>
+	</table>
+	{% endif %}
+	</form>
+</center>
+  </header></div></section>   
+<center>
+	<h1>View department</h1>
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>Slno</th>
+			<th>department</th>
+ 				<th>Email</th>
+			<th>description</th>
+         	<th>Phone</th>
+         	<th>place</th>
+
+
+		</tr>
+		{% for row in data['departmentview']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['dept_name']}}</td>
+		
+ 				<td>{{row['email']}}</td>
+	<td>{{row['description']}}</td>
+			<td>{{row['phone']}}</td>
+			<td>{{row['place_name']}}</td>
+
+			<td><a class="btn btn-success" href="?action=delete&vid={{row['dept_id']}}">delete</a></td>
+			<td><a class="btn btn-success" href="?action=update&vid={{row['dept_id']}}">Update</a></td>
+		
+		</tr>
+
+		{%endfor %}
+	</table>
+</center>
+{% include 'footer.html'%}

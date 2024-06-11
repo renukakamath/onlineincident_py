@@ -1,0 +1,50 @@
+{% include 'staffheader.html'%}
+
+
+<section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+
+<center>
+		<h1>UPLOAD WORK</h1>
+
+		<form method="post"  enctype="multipart/form-data">
+		<table class="table" style="width: 500px">
+			<tr>
+				<th>FilePath</th>
+				<td><input type="file" name="fpath"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="upload" value="UPLOAD" class="btn btn-success"></td>
+			</tr>
+		</table>
+	</center>
+
+
+</form>
+</header></div></section>
+<center>
+<h1>VIEW UPLOAD WORK</h1>
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>slno</th>
+			<th>Work</th>
+			<th>FilePath</th>
+			<th>Date</th>
+	 	</tr>
+		{% for row in data['workupload']%}
+
+<tr>
+	<td>{{loop.index}}</td>
+	<td>{{row['work']}}</td>
+	<td><img src="/{{row['filepath']}}" width="100" height="100"></td>
+	<td>{{row['date']}}</td>
+	
+</tr>
+
+	 {% endfor %}
+	  </table>
+	  </center>
+{% include 'footer.html'%}

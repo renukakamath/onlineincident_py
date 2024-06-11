@@ -1,0 +1,91 @@
+{% include 'departmentheader.html'%}
+<section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+
+<center>
+
+<h1>MANAGE ACTIVITY</h1>
+{% if data['placeup']%}
+<form method="POST">
+<table class="table" style="width:500px;color: green">
+
+
+<tr>
+<th>Title</th>
+<td><input type="text" name="title" required class="form-control" value="{{data['placeup'][0]['title'] }}"></td>
+</tr>
+<tr>
+<th>Description</th>
+<td><input type="text" name="des" required class="form-control" value="{{data['placeup'][0]['description']}}"></td>
+</tr>
+
+<tr>
+<th>Activity-Date</th>
+<td><input type="date" name="dat" required class="form-control" value="{{data['placeup'][0]['activity_date']}}"></td>
+</tr>
+<tr>
+	 <td align="center" colspan="2"><input type="submit" name="update" value="UPDATE" class="btn btn-success"></td>
+ </tr>
+        </table>
+ 
+</form>
+
+{% else %}
+<form method="post">
+
+<table class="table" style="width:500px;color: green">
+
+<tr>
+<th>Title</th>
+<td><input type="text" name="title" required class="form-control" ></td>
+</tr>
+<tr>
+<th>Description</th>
+<td><input type="text" name="des" required class="form-control" ></td>
+</tr>
+
+<tr>
+<th>Activity-Date</th>
+<td><input type="date" name="dat" required class="form-control" ></td>
+</tr>
+	 <td align="center" colspan="2"><input type="submit" name="register" value="ADD" class="btn btn-success"></td>
+ </tr>
+        </table>
+{% endif %}
+ <h3>VIEW ACTIVITY</h3>
+	<table class="table" style="width: 500px">
+	<thead class="thead-dark">
+		<tr>
+			<th>slno</th>
+			<th>Department Name</th>
+			<th>Title</th>
+			<th>Description</th>
+			<th>Activity Date</th>
+		</tr>
+</thead>
+	{% for row in data['place']%}
+
+<tr>
+	<td>{{loop.index}}</td>
+	<td>{{row['dept_name']}}</td>
+	<td>{{row['title']}}</td>
+	<td>{{row['description']}}</td>
+	<td>{{row['activity_date']}}</td>
+
+	  <td><a class="btn btn-success" href="?action=update&aid={{row ['activity_id']}}">update</a></td>
+  <td><a class="btn btn-danger" href="?action=delete&aid={{row['activity_id']}}">delete</a></td>
+</tr>
+{% endfor%}
+
+	</table>
+
+<hr>
+    </center>
+</form>    
+</header></div></section>   
+
+{% include 'footer.html' %}
+	

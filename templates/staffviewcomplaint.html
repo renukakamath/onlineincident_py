@@ -1,0 +1,54 @@
+{% include 'staffheader.html'%}
+
+
+<section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+
+<center>
+<h1>VIEW COMPLAINT</h1>
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>slno</th>
+			<th>first Name</th>
+			<th>last Name</th>
+			<th>Department Name</th>
+		
+			<th>Title</th>
+			<th>Description</th>
+			<th>Reply</th>
+			<th>Date-Time</th>
+	 	</tr>
+	{% for row in data['comp']%}
+	
+
+<tr>
+	<td>{{loop.index}}</td>
+	<td>{{row['first_name']}}</td>
+	<td>{{row['last_name']}}</td>
+	<td>{{row['dept_name']}}</td>
+	
+	<td>{{row['title']}}</td>
+	<td>{{row['description']}}</td>
+	<td>{{row['reply']}}</td>
+
+	<td>{{row['date_time']}}</td>
+
+
+{% if row['reply']=="pending"%}
+			<td><a href="staffprovidereply?cid={{row['complaint_id'] }}">reply</a></td>
+{% endif %}
+	
+	
+</tr>
+
+	{% endfor %}
+	  </table>
+	  </center>
+
+
+	   </header></div></section>
+
+	  {% include 'footer.html'%}

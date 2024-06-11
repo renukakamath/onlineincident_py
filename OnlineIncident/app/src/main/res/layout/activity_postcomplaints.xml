@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/img"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".postcomplaints">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="complaint"
+        android:textColor="#100D0D"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="144dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="200dp"
+
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/comp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="complaint"
+        android:inputType="textPersonName"
+        android:textColor="#090808"
+        android:textColorHint="#120E0E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="256dp" />
+
+    <EditText
+        android:id="@+id/tit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="title"
+        android:inputType="textPersonName"
+        android:textColor="#090808"
+        android:textColorHint="#120E0E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="256dp" />
+
+    <Button
+        android:id="@+id/complaint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="375dp" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="409dp"
+        android:layout_height="560dp"
+        android:layout_marginLeft="40dp"
+        tools:layout_editor_absoluteX="1dp" />
+
+</LinearLayout>

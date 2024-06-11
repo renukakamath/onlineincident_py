@@ -1,0 +1,34 @@
+{% include 'departmentheader.html'%}
+
+<section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+
+<center>
+<h1>VIEW UPLOAD WORK</h1>
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>slno</th>
+			<th>Work</th>
+			<th>FilePath</th>
+			<th>Date</th>
+	 	</tr>
+	{% for row in data['works']%}
+
+<tr>
+	<td>{{loop.index}}</td>
+	<td>{{row['work']}}</td>
+	<td><img src="/{{row['filepath']}}" width="100" height="100"></td>
+	<td>{{row['date']}}</td>
+	
+</tr>
+
+{% endfor %}
+	  </table>
+	  </table>
+	  </center></header></div></section>  
+
+
+	    {% include 'footer.html'%} 

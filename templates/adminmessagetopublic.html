@@ -1,0 +1,41 @@
+ {% include 'admin_header.html'%}
+
+ <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+<center>
+<h1>VIEW PUBLIC</h1>
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>slno</th>
+			<th>place</th>
+			<th>frist Name</th>
+			<th>last Name</th>
+			<th>House Name</th>
+			<th>Phone</th>
+			<th>Email</th>
+		</tr>
+
+{% for row in data['pay']%}
+<tr>
+	<td>{{loop.index}}</td>
+	<td>{{row['place_name']}}</td>
+	<td>{{row['first_name']}}</td>
+	<td>{{row['last_name']}}</td>
+	<td>{{row['house_name']}}</td>
+	<td>{{row['phone']}}</td>
+	<td>{{row['email']}}</td>
+	<td><a class="btn btn-success" href="adminmsgpublic?uid={{row ['user_id']}}">message</a></td>
+  
+</tr>
+{% endfor %}
+</table>
+	</table>
+
+
+    </center>
+
+</header></div></section>
+{% include 'footer.html'%}

@@ -1,0 +1,79 @@
+{%include 'admin_header.html'%}
+
+<section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+
+<center>
+	<h1 style="color: green">Manage rule</h1>
+	<form method="post" enctype="multipart/form-data">
+		{% if data['ruleup']%}
+		<table class="table" style="width: 500px;color: green">
+		<tr>
+			<th>title</th>
+			<td><input type="text" required="" class="form-control" value="{{data['ruleup'][0]['title']}}" name="title"></td>
+		</tr>
+		
+		<tr>
+			<th>description</th>
+			<td><input type="text" required="" class="form-control"  value="{{data['ruleup'][0]['description']}}" name="description"></td>
+		</tr>
+		
+
+		
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="update"></td>
+		</tr>
+	</table>
+	{% else %}
+	<table class="table" style="width: 500px;color: green">
+		<tr>
+			<th>title</th>
+			<td><input type="text" required="" class="form-control" name="title"></td>
+		</tr>
+		
+		<tr>
+			<th>description</th>
+			<td><input type="text" required="" class="form-control"  name="description"></td>
+		</tr>
+		
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="add"></td>
+		</tr>
+	</table>
+	{% endif %}
+	</form>
+</center>
+</header></div></section>
+<center>
+	<h1>View rule</h1>
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>Slno</th>
+			<th>title</th>
+			
+			<th>description</th>
+		
+
+
+		</tr>
+		{% for row in data['rule']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['title']}}</td>
+			
+			<td>{{row['description']}}</td>
+
+			
+
+			<td><a class="btn btn-success" href="?action=delete&rid={{row['rule_id']}}">delete</a></td>
+			<td><a class="btn btn-success" href="?action=update&rid={{row['rule_id']}}">Update</a></td>
+		</tr>
+
+		{%endfor %}
+	</table>
+
+</center>
+{% include 'footer.html'%}

@@ -1,0 +1,61 @@
+ {% include 'admin_header.html'%}
+
+ <section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+
+<center>
+<form method="post">
+	<br><br>
+	<h1>message</h1>
+
+		<table class="table" style="width: 500px">
+			<tr>
+				<th>Message</th>
+				<td><input type="text" name="msg"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="send" value="SEND" class="btn btn-success"></td>
+			</tr>
+		</table>
+
+		</header></div></section>
+	</form></center>
+	<center>
+		<h1>view message</h1>
+	<table class="table" style="width:500px;">
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Receiver Type</th>
+			<th>Message</th>
+			<th>Date</th>
+		</tr>
+		{% for row in data['mess']%}
+	
+			<tr>
+				<td>{{row['first_name']}}</td>
+				<td>{{row['last_name']}}</td>
+				<td>{{row['type']}}</td>
+				<td>{{row['message']}}</td>
+				<td>{{row['date']}}</td>
+
+			</tr>
+			{% endfor %}
+	
+	</table>
+		</center>
+
+
+</form>
+
+	</table>
+
+
+    </center>
+
+
+
+{% include 'footer.html'%}

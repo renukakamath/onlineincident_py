@@ -1,0 +1,126 @@
+
+{% include 'departmentheader.html'%}
+<section id="facts"  class="wow fadeIn">
+      <div class="container">
+
+        <header class="section-header">
+<br><br><br>
+<center>
+<h1> MANAGE STAFF</h1>
+
+{% if data['updatestaff']%}
+<form method="post">
+<table class="table" style="width:500px;color: green">
+
+<tr>
+<th>First Name</th>
+<td><input type="text" name="fname" required class="form-control" value="{{data['updatestaff'][0]['firstname']}}"></td>
+</tr>
+<tr>
+<th>Last Name</th>
+<td><input type="text" name="lname" required class="form-control" value="{{ data['updatestaff'][0]['lastname'] }}"></td>
+</tr>
+
+<tr>
+<th>Place</th>
+<td><input type="text" name="place" required class="form-control" value="{{data['updatestaff'][0]['place'] }}"></td>
+</tr>
+<tr>
+<th>Phone</th>
+<td><input type="number" name="phone" pattern="[0-9]{10}" required class="form-control" value="{{data['updatestaff'][0]['phone']}}"></td>
+</tr>
+
+<tr>
+<th>Email</th>
+<td><input type="email" name="email" required class="form-control" value="{{data['updatestaff'][0]['email'] }}"></td>
+</tr>
+<tr>
+	 <td align="center" colspan="2"><input type="submit" name="update" value="UPDATE" class="btn btn-success"></td>
+ </tr>
+        </table>
+    </form>
+ 
+
+
+
+{% else %}
+<form method="post">
+<table class="table" style="width:500px;color: green">
+
+<tr>
+<th>First Name</th>
+<td><input type="text" name="fname" required class="form-control" ></td>
+</tr>
+<tr>
+<th>Last Name</th>
+<td><input type="text" name="lname" required class="form-control" ></td>
+</tr>
+<tr>
+<th>place</th>
+<td><input type="text" name="place" required class="form-control"></td>
+</tr>
+<tr>
+<th>Phone</th>
+<td><input type="number" name="phone" pattern="[0-9]{10}" required class="form-control"></td>
+</tr>
+<tr>
+<th>Email</th>
+<td><input type="email" name="email" required class="form-control"></td>
+</tr>
+
+<tr>
+<th>username</th>
+<td><input type="text" name="uname" required class="form-control"></td>
+</tr>
+<tr>
+<th>password</th>
+<td><input type="password" name="pwd" required class="form-control"></td>
+</tr>
+<tr>
+	 <td align="center" colspan="2"><input type="submit" name="register" value="ADD" class="btn btn-success"></td>
+ </tr>
+        </table>
+    </form>
+
+
+{% endif %}
+
+</center>
+</header></div></section>
+<center>
+ <h3>VIEW STAFF</h3>
+	<table class="table" style="width: 500px">
+	<thead class="thead-dark">
+		<tr>
+			<th>slno</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Department Name</th>
+			<th>Place</th>
+			<th>Phone</th>
+			<th>Email</th>
+		</tr>
+</thead>
+		
+{% for row in data['staffview']%}
+<tr>
+	<td>{{loop.index}}</td>
+	<td>{{row['lastname']}}</td>
+	<td>{{row['firstname']}}</td>
+	<td>{{row['dept_name']}}</td>
+	<td>{{row['place']}}</td>
+	<td>{{row['phone']}}</td>
+	<td>{{row['email']}}</td>
+
+	  <td><a class="btn btn-success" href="?action=update&sid={{row ['staff_id']}}">update</a></td>
+  <td><a class="btn btn-danger" href="?action=delete&sid={{row['staff_id']}}">delete</a></td>
+</tr>
+
+{% endfor %}
+
+	</table>
+
+<hr>
+    </center> </header></div></section>  
+
+{% include 'footer.html'%} 
